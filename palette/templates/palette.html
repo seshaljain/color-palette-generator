@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block main %}
+<h1 class="display">Generated Color Palette</h1>
+<div class="wrapper">
+  <img alt="Input Image" src="{{ url_for("static", filename='img/' + image) }}" class="uploaded-image" />
+  <div class="palette">
+    {% for color in colors %}
+    <div class="palette-color" style="background-color: {{ color }}"><span class="palette-color-name">{{ color }}</span></div>
+    {% endfor %}
+  </div>
+</div>
+  <div class="download">
+    Download the palette:
+    <br>
+        <a class="btn" href="{{ '/download/css' + download_url }}">CSS</a>
+        <a class="btn" href="{{ '/download/scss' + download_url }}">SCSS</a>
+        <a class="btn" href="{{ '/download/json' + download_url }}">JSON</a>
+  </div>
+{% endblock main %}
